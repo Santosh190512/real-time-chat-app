@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Phone, Send, Smile, Video } from "lucide-react";
+import { Info, Phone, Send, Smile, Video } from "lucide-react";
 
 import useSocket from "../../hooks/useSocket";
 import { fetchMessagesThunk, sendMessageThunk } from "../../redux/message/messageThunk";
@@ -9,7 +9,7 @@ import TypingIndicator from "../TypingIndicator/TypingIndicator";
 import UploadButton from "../UploadButton/UploadButton";
 import { getRoomTitle } from "../../utils/chatDisplay";
 
-export default function ChatWindow({ room }) {
+export default function ChatWindow({ room, onToggleInfo }) {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const { messages, typingUsers } = useSelector((state) => state.message);
@@ -77,8 +77,9 @@ export default function ChatWindow({ room }) {
           </div>
         </div>
         <div className="flex gap-4 text-slate-300">
-          <Phone className="h-5 w-5" />
-          <Video className="h-5 w-5" />
+          <Phone className="h-5 w-5 cursor-pointer hover:text-white" />
+          <Video className="h-5 w-5 cursor-pointer hover:text-white" />
+          <Info className="h-5 w-5 cursor-pointer hover:text-white xl:hidden" onClick={onToggleInfo} />
         </div>
       </header>
 

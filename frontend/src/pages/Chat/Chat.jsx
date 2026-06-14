@@ -41,15 +41,9 @@ export default function Chat() {
         onCreateGroup={() => setShowModal(true)}
       />
 
-      <ChatWindow room={activeChat} />
+      <ChatWindow room={activeChat} onToggleInfo={() => setShowInfo((value) => !value)} />
 
-      {showInfo && activeChat && <GroupInfoPanel room={activeChat} />}
-
-      {activeChat && (
-        <button type="button" className="fixed bottom-6 right-6 z-20 cursor-pointer rounded-full bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-xl shadow-blue-950/30 transition hover:bg-blue-500 xl:hidden" onClick={() => setShowInfo((value) => !value)}>
-          Info
-        </button>
-      )}
+      {showInfo && activeChat && <GroupInfoPanel room={activeChat} onClose={() => setShowInfo(false)} />}
 
       {showModal && <CreateGroupModal closeModal={() => setShowModal(false)} />}
     </div>

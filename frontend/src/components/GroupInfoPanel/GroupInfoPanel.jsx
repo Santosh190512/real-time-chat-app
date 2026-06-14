@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { addMemberThunk, leaveGroupThunk, removeMemberThunk } from "../../redux/chat/chatThunk";
 import { getRoomTitle } from "../../utils/chatDisplay";
 
-export default function GroupInfoPanel({ room }) {
+export default function GroupInfoPanel({ room, onClose }) {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const [userId, setUserId] = useState("");
@@ -20,8 +20,14 @@ export default function GroupInfoPanel({ room }) {
   };
 
   return (
-    <aside className="hidden w-80 overflow-auto border-l border-slate-800 bg-slate-900 xl:block">
-      <div className="p-6 text-center">
+    <aside className="fixed right-0 top-0 bottom-0 z-30 flex w-80 flex-col border-l border-slate-800 bg-slate-900 shadow-2xl xl:static xl:z-0 xl:flex">
+      <div className="flex items-center justify-between border-b border-slate-800 p-4 xl:hidden">
+        <h3 className="m-0 text-base font-semibold text-white">Details</h3>
+        <button type="button" onClick={onClose} className="cursor-pointer text-sm font-semibold text-slate-400 hover:text-white">
+          Close
+        </button>
+      </div>
+      <div className="flex-1 overflow-y-auto p-6 text-center">
       <div className="mx-auto flex aspect-square w-28 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 text-4xl font-extrabold text-white">
         {room.avatar ? <img src={room.avatar} alt="" className="h-full w-full object-cover" /> : <span>{room.name?.[0] || "G"}</span>}
       </div>
