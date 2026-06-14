@@ -93,7 +93,7 @@ export default function ChatWindow({ room, onToggleInfo }) {
         </div>
       </div>
 
-      <form className="shrink-0 border-t border-slate-800 bg-slate-900 p-4" onSubmit={handleSend}>
+      <form className="shrink-0 border-t border-slate-800 bg-slate-900 px-5 py-4 pb-6 md:pb-4" onSubmit={handleSend}>
         <div className="flex items-center gap-3">
           <Smile className="h-5 w-5 shrink-0 text-slate-400" />
         <UploadButton roomId={room.id} />
