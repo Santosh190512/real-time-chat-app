@@ -93,12 +93,12 @@ export default function ChatWindow({ room, onToggleInfo }) {
         </div>
       </div>
 
-      <form className="shrink-0 border-t border-slate-800 bg-slate-900 px-5 py-4 pb-6 md:pb-4" onSubmit={handleSend}>
-        <div className="flex items-center gap-3">
+      <form className="shrink-0 border-t border-slate-800 bg-slate-900 px-3 py-4 pb-6 md:px-5 md:pb-4" onSubmit={handleSend}>
+        <div className="flex items-center gap-2 md:gap-3">
           <Smile className="h-5 w-5 shrink-0 text-slate-400" />
         <UploadButton roomId={room.id} />
         <input
-          className="min-w-0 flex-1 rounded-full border-0 bg-slate-800 px-5 py-3 text-white outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-blue-500/40"
+          className="min-w-0 flex-1 rounded-full border-0 bg-slate-800 px-4 py-3 text-white outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-blue-500/40 md:px-5"
           value={text}
           onChange={(e) => {
             setText(e.target.value);

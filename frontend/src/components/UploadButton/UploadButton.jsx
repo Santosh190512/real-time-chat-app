@@ -1,3 +1,4 @@
+import { Paperclip } from "lucide-react";
 import { useDispatch } from "react-redux";
 
 import { uploadChatFile } from "../../api/uploadApi";
@@ -27,8 +28,8 @@ export default function UploadButton({ roomId }) {
   };
 
   return (
-    <label className="cursor-pointer rounded-full bg-slate-800 px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-slate-700">
-      Attach
+    <label className="flex cursor-pointer items-center justify-center rounded-full bg-slate-800 p-3 text-slate-300 transition hover:bg-slate-700">
+      <Paperclip className="h-5 w-5" />
       <input type="file" onChange={handleUpload} className="hidden" />
     </label>
   );
